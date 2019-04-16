@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head>
+    <meta charset="UTF-8">
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<div th:replace="~{fragments/header :: header}">...</div>
+	<div>
+		<table border="1">
+			<thead>
+				<tr>
+					<td>ID</td>
+					<td>Name</td>
+					<td>Password</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:if="${userModel.userList.size()} eq 0">
+					<td colspan="3">没有用户信息！！</td>
+				</tr>
+				<tr th:each="user : ${userModel.userList}">
+					<td th:text="${user.id}">1</td>
+					<td th:text="${user.name}">11</td>
+					<td th:text="${user.password}">12</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+	<div th:replace="~{fragments/footer :: footer}">...</div>
+	
+	<script src="../js/jquery-3.1.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+</body>
+</html>
